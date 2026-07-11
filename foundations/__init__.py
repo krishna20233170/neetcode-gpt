@@ -1,17 +1,47 @@
-from .gradient_descent import *
-from .activations import *
-from .softmax import *
-from .loss import *
-from .linear_regression import *
-from .linear_regression_training import *
-from .neuron import *
-from .backprop import *
-from .multi_layer_backprop import *
-from .mlp import *
-from .weight_init import *
-from .pytorch_basics import *
-from .digit_classifier import *
-from .sentiment import *
-from .training_loop import *
-from .training_diagnostics import *
-from .dead_relu_detector import *
+"""Neural network primitives built from scratch (NeetCode ML course).
+
+Each submodule exposes a ``Solution`` class matching the course problem API.
+Import from the specific module, e.g.::
+
+    from foundations.gradient_descent import Solution
+"""
+
+from . import (
+    activations,
+    backprop,
+    dead_relu_detector,
+    digit_classifier,
+    gradient_descent,
+    linear_regression,
+    linear_regression_training,
+    loss,
+    mlp,
+    multi_layer_backprop,
+    neuron,
+    pytorch_basics,
+    sentiment,
+    softmax,
+    training_diagnostics,
+    training_loop,
+    weight_init,
+)
+
+__all__ = [
+    "activations",
+    "backprop",
+    "dead_relu_detector",
+    "digit_classifier",
+    "gradient_descent",
+    "linear_regression",
+    "linear_regression_training",
+    "loss",
+    "mlp",
+    "multi_layer_backprop",
+    "neuron",
+    "pytorch_basics",
+    "sentiment",
+    "softmax",
+    "training_diagnostics",
+    "training_loop",
+    "weight_init",
+]

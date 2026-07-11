@@ -1,9 +1,9 @@
 # My GPT — Built from Scratch
 
-> Assembled from the NeetCode ML course on [NeetCode.io](https://neetcode.io)
+> Assembled from the NeetCode ML course on [NeetCode.io](https://neetcode.io)  
 > Built by **Krishna Kaushal** on July 11, 2026
 
-Every file in this project is code I wrote and submitted while completing the NeetCode ML course.
+Every file in this project is a solution from the NeetCode ML course.
 The problems progressively build from gradient descent fundamentals all the way to a working GPT.
 
 ## Project Structure
@@ -30,25 +30,41 @@ data/           Data pipeline
   nlp_preprocessing.py        NLP preprocessing
   tokenizer_utils.py          Tokenization edge cases
 
-train.py        GPT training loop
-generate.py     Text generation
+train.py        GPT training loop (+ runnable demo)
+generate.py     Text generation (+ runnable demo)
 
 foundations/    Neural network primitives built from scratch
-  neuron.py, backprop.py, mlp.py, activations.py, loss.py,
-  training_loop.py, dead_relu_detector.py, ...
+  gradient_descent.py, activations.py, softmax.py, loss.py,
+  linear_regression.py, neuron.py, backprop.py, mlp.py, ...
 ```
 
 ## Quick Start
 
 ```bash
 pip install -r requirements.txt
-python train.py
-python generate.py
+python train.py      # trains a tiny char-level GPT, writes gpt_checkpoint.pt
+python generate.py   # samples text from the checkpoint
 ```
+
+## Using course solutions
+
+Each problem file exposes a `Solution` class (or `nn.Module` subclass) matching the NeetCode API:
+
+```python
+from foundations.gradient_descent import Solution as GD
+from foundations.activations import Solution as Acts
+from model.gpt import GPT
+from data.vocab import Solution as Vocab
+
+print(GD().get_minimizer(iterations=10, learning_rate=0.01, init=5))
+```
+
+Import from the specific module rather than `from foundations import *`, since many modules share the name `Solution`.
 
 ## Course
 
 This project was built by completing the [NeetCode ML Course](https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning):
+
 - Math Foundations (gradient descent, activations, loss functions)
 - Neural Networks from scratch (neuron, backprop, MLP)
 - PyTorch fundamentals
